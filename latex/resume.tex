@@ -1,0 +1,180 @@
+\documentclass[a4paper,9.5pt]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+
+\titleformat{\section}
+  {\normalfont\fontsize{12}{14}\selectfont}
+  {}
+  {0em}
+  {}
+
+\setmainfont{Georgia}
+
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+
+% Better underlines
+\renewcommand{\ULdepth}{1.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{#1}%
+}
+
+\newcommand{\myhref}[2]{\href{#1}{\myuline{#2}}}
+
+% Custom command for job entries
+\newcommand{\jobentry}[4]{%
+  \jobheader{#1}{#2}{#3}
+  \vspace{-0.5em}
+  \jobbullets{#4}
+  \vspace{0.5em}
+}
+
+\newcommand{\jobheader}[3]{%
+  \noindent{\fontspec{EB Garamond}\fontsize{12pt}{14pt}\selectfont \textbf{#1} – #2}\hfill{#3}
+}
+
+\newcommand{\positionheader}[2]{%
+  \noindent{\fontspec{EB Garamond}\fontsize{12pt}{14pt}\selectfont #1}\hfill{#2}\\
+  \vspace{-1.5em}
+}
+
+\newcommand{\jobbullets}[1]{%
+  \begin{itemize}[leftmargin=1em, label=\scalebox{0.7}{$\bullet$}, nosep, itemsep=2pt]
+    \item[]{\fontsize{9.5pt}{11pt}\selectfont \parbox[t]{\linewidth}{\setlength{\baselineskip}{1.5em}#1}}
+  \end{itemize}
+  \vspace{1.5em}
+}
+
+
+% Custom command for honor entries
+\newcommand{\honorentry}[2]{#1 \hfill \parbox[t]{9.5cm}{#2}\\[0.5em]}
+
+% Custom command for horizontal rule
+\newcommand{\myhrule}{\noindent\makebox[\linewidth]{\rule{\linewidth}{0.8pt}}}
+
+\setlength{\columnsep}{-12cm}
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\fontsize{28pt}{28pt}\selectfont{Ivan Echevarria} & 
+\begin{tabular}[b]{l@{}}
+    ivan@echevarria.io \\
+    \myhref{https://echevarria.io}{www.echevarria.io} \\
+    Washington, D.C.
+\end{tabular}
+\end{tabularx}
+
+\vspace{0.35cm}
+\myhrule
+
+\begin{multicols}{2}
+\section*{Experience}
+\columnbreak
+
+\noindent{\fontspec{EB Garamond}\fontsize{12pt}{14pt}\selectfont \textbf{Robinhood}}\\[0.5em]
+\positionheader{Software Engineer – Traffic Infrastructure}{Jan 2023 – Present}
+\jobbullets{
+  \item Websocket gateway bla bla bla
+  \item Migrated X million QPS from legacy from Nginx + EC2 LB infra to Envoy on K8s without incident
+  \item Prevented severe customer impact by effectively debugging distributed systems during crisis response
+}
+\vspace{-0.5em}
+\positionheader{Software Engineer – Equities Product}{Sep 2021 – Jan 2023}
+\jobbullets{
+  \item Server side order checks bla bla bla
+  \item Overhaul order processing to support market orders, deeply ambiguous bla bla bla
+  \item Built backend systems for \myhref{https://robinhood.com/us/en/support/articles/partner-stock-program/}{Partner Stock Program} and  supported public launch;\\ \myhref{https://www.paulgraham.com/ds.html}{Did  Things That Don't Scale} like track down and personally fix literally every single issue in prod
+}
+\vspace{0.5em}
+
+\jobentry{Ladder Life}{Software Engineer}{Apr 2021 – Aug 2021}{
+  \item Proudest moment: cut local unit test run time from 10 minutes to 3 by profiling + tuning JVM GC
+  \item Actual job: contribute to Clojure / Datomic-based underwriting engine 
+}
+
+\jobentry{SetSail (acq. by ZoomInfo)}{Software Engineer / Data Scientist}{Sep 2018 – Feb 2021}{
+  \item Employee 6 at seed-stage startup; late nights, zero to one moments, lasting friendships :)
+  \item support land \$Xm ARR bla bla
+  \item work directly with chief product officer to develop new product offerings, meet with customers bla bla
+  \item Enhanced team effectiveness by mentoring junior data scientists, promoting best practices including linting and testing, and building easy-to-use internal libraries
+}
+\nopagebreak[4]
+\vspace{-0.5em}
+\textit{Pre-2018 experience on \myhref{https://www.linkedin.com/in/ieechevarria/}{Linkedin}}
+
+\end{multicols}
+
+\vspace{-0.75em}
+\myhrule
+
+\begin{multicols}{2}
+\section*{Languages}
+\columnbreak
+Python \hspace{0.25em} - \hspace{0.25em} Go \hspace{0.25em} - \hspace{0.25em} SQL \hspace{0.25em} - \hspace{0.25em} C \hspace{0.25em} - \hspace{0.25em} JavaScript \hspace{0.25em} - \hspace{0.25em} HTML/CSS
+\end{multicols}
+
+\vspace{-2.5em}
+
+\begin{multicols}{2}
+\section*{Technologies}
+\columnbreak
+Envoy \hspace{0.25em} - \hspace{0.25em} Kubernetes \hspace{0.25em} - \hspace{0.25em} AWS \hspace{0.25em} - \hspace{0.25em} Git \hspace{0.25em} - \hspace{0.25em} Linux
+\end{multicols}
+
+\vspace{-2em}
+\myhrule
+
+\begin{multicols}{2}
+\section*{Projects}
+\columnbreak
+echevarria.io blog \hfill posts on front page of HN; 50,000+ visitors from organic search (\myhref{https://echevarria.io}{link})
+\vspace{0.75em} \\
+Lego Face VAE \hfill neural network that generates images of Lego faces (\myhref{https://www.echevarria.io/blog/lego-face-vae/index.html}{write-up}, \myhref{https://github.com/iechevarria/lego-face-VAE}{GitHub}) \vspace{0.75em} \\
+\textit{More projects on my \myhref{https://echevarria.io}{personal site} and on \myhref{https://github.com/iechevarria}{GitHub}}
+\end{multicols}
+
+\vspace{-0.75em}
+\myhrule
+
+\begin{multicols}{2}
+\section*{Education}
+\columnbreak
+William \& Mary – graduated 2018 summa cum laude (GPA 3.85) \\[0.5em]
+B.S. in Computer Science with a minor in Applied Mathematics
+\end{multicols}
+
+\begin{multicols}{2}
+\section*{Honors}
+\columnbreak
+\honorentry{Phi Beta Kappa}{Awarded to top 7\% of graduating seniors}
+\honorentry{Bob \& Debbie Noonan Award}{Awarded to 2 seniors for excellence in computer science}
+\honorentry{James Monroe Scholar}{Awarded to top 10\% of incoming freshmen}
+\end{multicols}
+
+\vspace{-3em}
+
+\begin{multicols}{2}
+\section*{Courses}
+\columnbreak
+\myhref{https://www.recurse.com/}{The Recurse Center} – Spring 1 2021 \\[0.5em]
+\myhref{https://bradfieldcs.com/}{Bradfield School of Computer Science} – Computer Science Intensive 2022
+\end{multicols}
+
+\end{document}
